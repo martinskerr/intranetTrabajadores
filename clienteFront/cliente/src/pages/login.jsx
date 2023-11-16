@@ -11,9 +11,7 @@ const Login = () => {
           <h2 className=" py-6 text-center text-3xl font-extrabold text-gray-900 border rounded-md">
             Bienvenido a tu Oficina Virtual
           </h2>
-          <h3 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Iniciar Sesión
-          </h3>
+
         </div>
         <form className="mt-8 space-y-6" action="#" method="POST">
           <input type="hidden" name="remember" defaultValue="true" />
