@@ -8,7 +8,21 @@ para activar el entorno virtual en Terminal PowerShell.
 1. estar en la carpeta madre del proyecto
 2. entrar a la carpeta "VENV"
 3. una vez dentro procedemos a escribir en la terminal el siguiente comando = Scripts\Activate.ps1
-4. Una vez puesto el comando anterior, deberiamos estar en el env de python, con esto tendremos acceso a las librerias instaladas en el repositorio.
+4. Agregar el .gitignore y agregar el comando venv/
+5. Instalar las librerias que estan a continuacion.
+
+Librerias para instalar en la carpeta de manage.py *DEBES TENER EL ENTORNO VIRTUAL ENCENDIDO* 
+1.DJANGO
+2.DJANGORESTFRAMEWORK
+3.django-cors-headers 
+4.COREAPI
+
+LIBRERIAS PARA INSTALAR EN LA CARPETA DEL FRONT CLIENT *DEBES TENER EL ENTORNO VIRTUAL ENCENDIDO* 
+1.react-router-dom
+2.react-hot-toast
+3.axios
+4.react-hook-form
+
 
 Para prender el servidor de django
 1. entramos a la carpeta madre del proyecto
