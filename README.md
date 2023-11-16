@@ -5,6 +5,12 @@ Sistema Intranet Trabajadores
 --NO TOCAR SETTINGS--
 
 para activar el entorno virtual en Terminal PowerShell.
+
+*Realizar estos pasos para crear el Entorno virtual*
+-pip install virtualenv
+-python -m venv venv
+*Realizar estos pasos para crear el Entorno virtual*
+
 1. estar en la carpeta madre del proyecto
 2. entrar a la carpeta "VENV"
 3. una vez dentro procedemos a escribir en la terminal el siguiente comando = Scripts\Activate.ps1
