@@ -86,7 +86,7 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cooperativedb',
+        'NAME': 'CooperativeDB',
         'USER': 'root',
         'PASSWORD': 'root1710!',
         'HOST': 'cooperativedb.ccntlbzumihd.us-east-1.rds.amazonaws.com',
