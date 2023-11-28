@@ -26,7 +26,14 @@ SECRET_KEY = 'django-insecure-xvkc_dfa!ay$5ei3cdw2crgwmo!r&7&5v0awy6_nn%!5e%oqym
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+
+
+]
 
 
 # Application definition
@@ -80,12 +87,31 @@ WSGI_APPLICATION = 'intranetTrabajadores.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'CooperativeDB',
+        'USER': 'root',
+        'PASSWORD': 'root1710!',
+        'HOST': 'cooperativedb.ccntlbzumihd.us-east-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
+
+AUTH_USER_MODEL = 'trabajadorApp.AppUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}
+
 
 
 # Password validation
@@ -129,9 +155,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
 
-]
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
