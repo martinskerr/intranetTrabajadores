@@ -8,6 +8,8 @@ from rest_framework import permissions, status
 from django.core import validators
 from .validations import custom_validation, validate_email, validate_password
 from .models import *
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.permissions import IsAuthenticated
 
 
 class UserRegister(APIView):
@@ -107,4 +109,18 @@ class DirectorioView(viewsets.ModelViewSet):
 
 class TareaView(viewsets.ModelViewSet):
 	serializer_class = TareaSerializer
-	queryset = Tarea.objects.all()					
+	queryset = Tarea.objects.all()				
+
+
+class SubirDocumentoView(APIView):
+    parser_classes = [MultiPartParser, FormParser]
+    permission_classes = [IsAuthenticated]  # asegurar que solo admins autenticados pueden subir documentos
+
+    def post(self, request, format=None):
+        serializer = DocumentoSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()  # Guarda el documento con las relaciones especificadas
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)	

@@ -57,6 +57,11 @@ class Empleador(models.Model):
     nombre_empleador = models.CharField(max_length=55, null=False, blank=False)
     fk_appuser = models.ForeignKey(appUser, on_delete=models.CASCADE, null=False, blank=False)
     
+    class Meta:
+        permissions = [
+            ('subida_documentos', 'Puede subir documentos'),
+        ]
+    
 
 class Seccion(models.Model):
     nombre_seccion = models.CharField(max_length=55, null=False, blank=False)
