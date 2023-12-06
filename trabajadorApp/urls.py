@@ -26,8 +26,4 @@ urlpatterns = [
 	path('login', views.UserLogin.as_view(), name='login'),
 	path('logout', views.UserLogout.as_view(), name='logout'),
 	path('user', views.UserView.as_view(), name='user'),
-<<<<<<< HEAD
 ]
-=======
-	]
->>>>>>> ae47eb86178b9e691e664ec60cf1511e31425ace
