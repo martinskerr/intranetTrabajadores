@@ -6,10 +6,7 @@ const Sidebar = () => {
 
   <Router>  
 
-      <Route path="/inicio" component={UsuarioPage} />
-      <Route path="/solicitudes" component={Solicitudes} />
-      <Route path="/documentos" component={Documentos} />
-      <Route path="/directorio" component={Directorio} />
+
 
   </Router> 
   );
