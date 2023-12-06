@@ -1,17 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Directorio } from '../pages/directorio';
+import { Documentos } from '../pages/documentos';
+import { Solicitudes } from '../pages/solicitudes';
+import { UsuarioPage } from '../pages/usuario';
 const Sidebar = () => {
   return (
+    <BrowserRouter>
 
-  <Router>  
+      <Router>  
+        <Routes>
+          <Route path="/inicio" element={<UsuarioPage/>} />
+          <Route path="/solicitudes" element={<Solicitudes/>} />
+          <Route path="/documentos" element={<Documentos/>} />
+          <Route path="/directorio" element={<Directorio/>} />
+        </Routes>
+      </Router> 
 
-      <Route path="/inicio" component={UsuarioPage} />
-      <Route path="/solicitudes" component={Solicitudes} />
-      <Route path="/documentos" component={Documentos} />
-      <Route path="/directorio" component={Directorio} />
-
-  </Router> 
+  </BrowserRouter>
   );
 };
 
