@@ -32,7 +32,7 @@ class appUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50, unique = True)
     country = models.CharField(max_length=100)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username',]
+    REQUIRED_FIELDS = ['username']
     objects = AppUserManager()
     groups = models.ManyToManyField(
         'auth.Group',
@@ -55,6 +55,13 @@ class appUser(AbstractBaseUser, PermissionsMixin):
 
 class Empleador(models.Model):
     nombre_empleador = models.CharField(max_length=55, null=False, blank=False)
+    fk_appuser = models.ForeignKey(appUser, on_delete=models.CASCADE, null=False, blank=False)
+    
+    class Meta:
+        permissions = [
+            ('subida_documentos', 'Puede subir documentos'),
+        ]
+    
 
 class Seccion(models.Model):
     nombre_seccion = models.CharField(max_length=55, null=False, blank=False)
@@ -76,6 +83,7 @@ class Trabajador(models.Model):
     rut_trabajador = models.CharField(max_length=15, null=False, blank=False, unique=True)
     fechaingreso_trabajador = models.DateField(null=False, blank=False)
     estado_trabajador = models.BooleanField()
+    fk_appuser = models.ForeignKey(appUser, on_delete=models.CASCADE, null=False, blank=False)
     fk_seccion = models.ForeignKey(Seccion, on_delete=models.CASCADE, null=False, blank=False)
     fk_area = models.ForeignKey(Area, on_delete=models.CASCADE, null=False, blank=False)
     fk_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False, blank=False)
