@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../components/sideBarUser';
+import Sidebar from '../components/sideBar';
 import MainWidget from '../components/mainWidget';
 
 
