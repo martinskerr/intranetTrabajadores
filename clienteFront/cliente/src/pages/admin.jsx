@@ -1,13 +1,17 @@
 import React from 'react';
-import Sidebar from '../components/sideBar';
-import MainWidget from '../components/mainWidget';
+import Header from '../components/header';
+import SectionHero from '../components/sectionHero';
 
 
-const adminPage = () => {
-    (
-        <div className="flex h-screen bg-gray-200">
-            <Sidebar />
-            <MainWidget />
+const AdminPage = () => {
+    return (
+        <div>
+            <Header/>
+            <SectionHero/>
+            
         </div>
-    )
+    );    
 };
+
+
+export default AdminPage;

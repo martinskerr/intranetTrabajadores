@@ -20,18 +20,12 @@ class UserLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
     password = serializers.CharField()
 
-    def validate(self, data):
-        email = data.get('email')
-        password = data.get('password')
-
-        if email and password:
-            user = authenticate(username=email, password=password)
-            if not user:
-                raise ValidationError('Invalid email or password')
-        else:
-            raise ValidationError('Both email and password are required')
-        
-        return data
+    def check_user(self, clean_data):
+       user = authenticate(username=clean_data['email'], password=clean_data['password'])
+       if not user:
+            raise ValidationError('Usuario no encontrado')
+       else:
+        return user
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
